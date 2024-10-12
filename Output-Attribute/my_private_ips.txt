@@ -1,0 +1,2 @@
+aws_instance.myFirstInstance.private_ip 
+aws_instance.myFirstInstance.private_ip 
