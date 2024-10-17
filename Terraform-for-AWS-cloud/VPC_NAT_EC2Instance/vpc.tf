@@ -8,13 +8,14 @@ resource "aws_vpc" "levelup_vpc" {
 instance tenancy means once we are goint to create the EC2 instance, the instance is going to use that particular network
 if it will keep the instance tenancy default, then more than one instance can be sped up on the same hardware.
 if you will change the instance tenancy, then each and every instance which you are going to spin up will be be on a separate hardwere which will cost you alot.
+instance tenancy can also be dedicate or host
 */
   tags = {
     Name = "levelup_vpc"
   }
 }
 
-# Subnet in custom VPC 1a
+# public Subnet in custom VPC 1a
 resource "aws_subnet" "levelupvpc-public-1" {
   vpc_id     = aws_vpc.levelup_vpc.id
   cidr_block = "10.0.1.0/24"
@@ -26,7 +27,7 @@ resource "aws_subnet" "levelupvpc-public-1" {
   }
 }
 
-# Subnet in custom VPC 1b
+# publicSubnet in custom VPC 1b
 resource "aws_subnet" "levelupvpc-public-2" {
   vpc_id     = aws_vpc.levelup_vpc.id
   cidr_block = "10.0.2.0/24"
@@ -38,7 +39,7 @@ resource "aws_subnet" "levelupvpc-public-2" {
   }
 }
 
-# Subnet in custom VPC 1c
+# public Subnet in custom VPC 1c
 resource "aws_subnet" "levelupvpc-public-3" {
   vpc_id     = aws_vpc.levelup_vpc.id
   cidr_block = "10.0.3.0/24"
@@ -99,7 +100,7 @@ resource "aws_internet_gateway" "levelup-gw" {
 resource "aws_route_table" "levelup-public-rt" {
   vpc_id = aws_vpc.levelup_vpc.id
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block = "0.0.0.0/0" #means all the IPs
     gateway_id = aws_internet_gateway.levelup-gw.id
   }
 
