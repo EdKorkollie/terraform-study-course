@@ -21,6 +21,10 @@ variable "PATH_TO_PUBLIC_KEY" {
   default = "levelup_key.pub"
 }
 
+variable "PATH_TO_PRIVATE_KEY" {
+  default = "levelup_key"
+}
+
 variable "INSTANCE_USERNAME" {
   default = "UBUNTU"
 }
