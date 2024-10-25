@@ -89,3 +89,17 @@ resource "aws_cloudwatch_metric_alarm" "levelup-cpu-alarm-scaledown" {
   actions_enabled                = true
   alarm_actions                  = [aws_autoscaling_policy.levelup-cpu-policy-scaledown.arn]     # once the alarm is triggered, what is the action that will be perform. it will apply the policy we have created above
 }
+
+
+/*
+
+to trigger the cpu usage alarm
+ssh to your machine
+ssh publicIp -l ubuntu -i keypairName
+sudo -i
+apt-get update
+put some load on the machine so that the alarm will get triggered
+apt-get install stress
+stress --cpu 2 --timeout 300                300 = how much time we want to put stress on the machine
+
+*/

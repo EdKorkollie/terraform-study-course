@@ -21,3 +21,21 @@ output "public_ip" {
   value = aws_instance.myFirstInstance
 }
 
+# run ssh-keygen -f levelup-key to generate public and private key
+
+/*
+  ssh to instance: ssh publicIP -l ubuntu -i keypairName
+  after you have create your instance, login to your machine to test the s3 bucket role
+  sudo -i
+  apt-get update
+  create some content in your s3 bucket from your instance
+  we need aws cli, we need to install python to install aws cli
+  apt-get install python-pip python-dev
+  pip install awscli
+  ls
+  echo "first now from TF class" > firstfile.txt
+  upload this file to s3 bucket which you have create
+  aws s3 cp firstfile.txt s3://nameOFs3Bucket
+
+*/
+
