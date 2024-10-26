@@ -7,7 +7,7 @@ resource "aws_key_pair" "levelup_key" {
 
 #security group for instances
 resource "aws_security_group" "allow-ssh" {
-  vpc_id                         = var.vpc_id
+  vpc_id                         = var.VPC_ID
   name                           = "allow-ssh-${var.ENVIRONMENT}"
   description                    = "security group that allows ssh traffic"
 
